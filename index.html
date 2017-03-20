@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title></title>
+
+	<style type="text/css">
+		@font-face {
+			font-family: digit;
+			src: url('digital-7_mono.ttf') format("truetype");
+		}
+	</style>
+
+	<link href="default.css" type="text/css" rel="stylesheet">
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript" src="garden.js"></script>
+	<script type="text/javascript" src="functions.js"></script>
+
+</head>
+
+<body>
+
+	<div id="mainDiv">
+	<audio autoplay="true" loop="true">
+		<source src="audio_1.mp3">
+	</audio>
+		<div id="content">
+			<div id="code">
+				<span class="comments">/**</span><br />
+				<span class="space"/><span class="comments">*From 2016—03-6,</span><br />
+				<span class="space"/><span class="comments">*To 2017-03-6.</span><br />
+				<span class="space"/><span class="comments">*/</span><br />
+				&nbsp;&nbsp;Boy&nbsp;&nbsp;name is<span class="keyword">Mr. MU</span><br />
+				&nbsp;&nbsp;Girl name is<span class="keyword">Ms. Zhang</span><br />
+				<span class="comments">//  3.6 Boy and girl falling in love.</span><br />
+				<span class="keyword">The boy and the girl together,They lived a happy every day.</span><br />
+				<span class="comments">//  They love each other.</span><br />
+				<span class="keyword">The boy love girl,</span><br />
+				<span class="keyword">The girl love boy.</span><br />
+				<span class="comments">//  AS time goes on.</span><br />
+				<span class="keyword">Though the girl in the study abroad, the boy still accompany her to study late into the night every day.</span><br />
+				<span class="comments">//  At the same time.</span><br />
+				<span class="keyword">They still love each other.</span><br />
+				<span class="comments">//  Time flies like an arrow,the sun is like a boat.</span><br />
+				<span class="comments">//  They've been together for a year.</span><br />
+				<span class="keyword">The boy very happy,</span><br />
+				<span class="keyword">The girl is also veryhappy.</span><br />
+				<span class="comments">//  Whether it is right now</span><br />
+				<span class="comments">//  Still in the distant future.</span><br />
+				<span class="keyword"/>The boy have a wish.<br />
+				<span class="comments">//  Boy want a girl happy forever.</span><br />
+				<br>
+				&nbsp;&nbsp;I want to say:<br />
+				&nbsp;&nbsp;Baby, I love you!<br />
+			</div>
+			<div id="loveHeart">
+				<canvas id="garden"></canvas>
+				<div id="words">
+					<div id="messages">
+						亲爱的，我会一直爱着你，一起携手走过未来的日子。
+						<div id="elapseClock"></div>
+					</div>
+					<div id="loveu">
+						爱你，宝宝。<br/>
+						<div class="signature">-- Jerry
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		var offsetX = $("#loveHeart").width() / 2;
+		var offsetY = $("#loveHeart").height() / 2 - 55;
+		var together = new Date("2016/3/6,00:00:00");
+		// together.setFullYear(2016,3,1);
+		// together.setHours(0);
+		// together.setMinutes(0);
+		// together.setSeconds(0);
+		// together.setMilliseconds(0);
+
+		if (!document.createElement('canvas').getContext) {
+			var msg = document.createElement("div");
+			msg.id = "errorMsg";
+			msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+"; 
+			document.body.appendChild(msg);
+			$("#code").css("display", "none")
+			$("#copyright").css("position", "absolute");
+			$("#copyright").css("bottom", "10px");
+			document.execCommand("stop");
+		} else {
+			setTimeout(function () {
+				startHeartAnimation();
+			}, 5000);
+
+			timeElapse(together);
+			setInterval(function () {
+				timeElapse(together);
+			}, 500);
+
+			adjustCodePosition();
+			$("#code").typewriter();
+		}
+	</script>
+</body>
+</html>
